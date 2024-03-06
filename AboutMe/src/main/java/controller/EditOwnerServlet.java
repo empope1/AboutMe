@@ -7,38 +7,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Name;
-
 /**
- * Servlet implementation class getBioServlet
+ * Servlet implementation class EditOwnerServlet
  */
-@WebServlet("/getBioServlet")
-public class getBioServlet extends HttpServlet {
+@WebServlet("/editOwnerServlet")
+public class EditOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getBioServlet() {
+    public EditOwnerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String userName = request.getParameter("userName");
-		
-		Name userInput = new Name(userName);
-		
-		request.setAttribute("userInputPouch", userInput);
-		getServletContext().getRequestDispatcher("/bioresult.jsp").forward(request,response);
-		
-		//PrintWriter writer = response.getWriter();
-		//writer.println(userCoins.toString());
-		//writer.close();
+		doGet(request, response);
 	}
 
 }
